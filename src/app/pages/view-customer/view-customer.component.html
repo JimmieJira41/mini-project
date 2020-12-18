@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="title text-center">
+            <h2 class="display-3">Profile Customer</h2>
+          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Firstname</th>
+                <td>{{profileCustomer.firstname}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Lastname</th>
+                <td>{{profileCustomer.lastname}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Weight</th>
+                <td>{{profileCustomer.weight}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Height</th>
+                <td>{{profileCustomer.height}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Birthday</th>
+                <td>{{profileCustomer.birthday}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Age</th>
+                <td>{{profileCustomer.age}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Gender</th>
+                <td>{{profileCustomer.gender}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12 text-right">
+            <a class="btn btn-warning" routerLink="/customer">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="container h-100">
+  <div class="card m-4 shadow">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 text-center text-uppercase">
+          <h1 class="display-3 font-weight-bold">
+            profile
+          </h1>
+          <span><small>update profile</small></span>
+          <div *ngIf="flagUpdate" class="alert alert-success my-3"><strong class="text-uppercase">Update Successfull!</strong></div>
+        </div>
+        <div class="col-12">
+          <form [formGroup]="updateProfileForm" enctype="multipart/form-data" name="updateProfileForm"
+            (ngSubmit)="onSubmitUpdateProfile()">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="image-file"><strong>Image</strong></label>
+                  <input type="file" formControlName="imageFile" name="file" class="form-control-file"
+                    (change)="onFileChange($event)">
+                </div>
+                <div class="form-group">
+                  <label><strong>ID</strong></label>
+                  <input type="text" formControlName="id" class="form-control py-4 rounded-0 border-0 shadow" />
+                </div>
+                <div class="form-group">
+                  <label><strong>Username</strong></label>
+                  <input type="text" formControlName="username" class="form-control py-4 rounded-0 border-0 shadow" />
+                </div>
+                <div class="form-group">
+                  <label><strong>Password</strong></label>
+                  <input type="password" formControlName="password"
+                    class="form-control py-4 rounded-0 border-0 shadow" />
+                </div>
+                <div class="text-right">
+                  <a class="btn btn-warning btn-sm text-uppercase" routerLink="/update-password"><strong>reset password</strong></a>
+                </div>
+                <div class="form-group">
+                  <label><strong>Email</strong></label>
+                  <input type="email" formControlName="email" class="form-control py-4 rounded-0 border-0 shadow" />
+                </div>
+                <div class="form-group">
+                  <label><strong>FirstName</strong></label>
+                  <input type="text" formControlName="firstname" class="form-control py-4 rounded-0 border-0 shadow" />
+                </div>
+                <div class="form-group">
+                  <label><strong>LastName</strong></label>
+                  <input type="text" formControlName="lastname" class="form-control py-4 rounded-0 border-0 shadow" />
+                </div>
+              </div>
+              <div class="col-12 text-right">
+                <a class="btn btn-danger text-uppercase mr-2" routerLink="/profile"><strong>Cancel</strong></a>
+                <button type="submit" class="btn btn-success text-uppercase"><strong>Submit</strong></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

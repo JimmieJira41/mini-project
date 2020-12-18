@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="container-fiuld bg-info py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a class="btn">
+          <strong>
+            LOGO
+          </strong>
+        </a>
+        <!-- <a class="btn bg-danger justify-content-end" (click)="onLogout()"> -->
+        <a>
+          <strong>
+            Logout
+          </strong>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-2">
+                <div class="card-body">
+
+                    <form [formGroup]="uploadForm" name="uploadForm" (ngSubmit)="onSubmitUploadImage()">
+                        <div class="form-group">
+                            <label for="image-file">Image</label>
+                            <input type="file" formControlName="file" name="file" class="form-control-file" (change)="onFileChange($event)">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

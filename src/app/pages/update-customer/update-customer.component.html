@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="profileCustomerUpdateForm" name="profileCustomerUpdateForm"
+            (ngSubmit)="onSubmitUpdateProfileCustomer()">
+            <div class="form-group">
+              <label for="firstName">
+                Firstname
+              </label>
+              <input name="firstName" formControlName="firstName" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="lastname">
+                Lastname
+              </label>
+              <input name="lastname" formControlName="lastName" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="weight">
+                weight
+              </label>
+              <input name="weight" formControlName="weight" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="height">
+                height
+              </label>
+              <input name="height" formControlName="height" class="form-control" />
+            </div>
+            <!-- <div class="form-group">
+              <label for="birthbay">
+                birthbay
+              </label>
+              <input name="birthday" formControlName="birthDay" class="form-control" />
+            </div> -->
+            <div class="form-group">
+              <label for="birthday">Birthday
+                <mat-form-field class="d-block" appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="birthDay">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="age">
+                age
+              </label>
+              <input name="age" formControlName="age" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="gender">
+                gender
+              </label>
+              <input name="gender" formControlName="gender" class="form-control" />
+            </div>
+            <div class="d-block text-right">
+              <a class="btn btn-danger mx-1" routerLink="/customer">Cancel</a>
+              <button type="submit" class="btn btn-success mx-1">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
