@@ -18,8 +18,8 @@ export class UserService {
 
 
   public login(credential: string, password: string): Observable<IloginResponse> {
-    let url = "http://localhost:8080/authentication/login";
-    // let url = "https://cry-by-test-backend.herokuapp.com/authentication/login";
+    // let url = "http://localhost:8080/authentication/login";
+    let url = "https://cry-by-test-backend.herokuapp.com/authentication/login";
     let body = {
       credential: credential,
       password: password
@@ -31,15 +31,15 @@ export class UserService {
   public getProfile(): Observable<IModelUser> {
     let token: string = this.cookieService.get('Token');
     console.log("this token in getporfile" + "  " + token);
-    let url = "http://localhost:8080/authentication/profile";
-    // let url = "https://cry-by-test-backend.herokuapp.com/authentication/profile";
+    // let url = "http://localhost:8080/authentication/profile";
+    let url = "https://cry-by-test-backend.herokuapp.com/authentication/profile";
     return this.http.get<IModelUser>(url);
   }
 
 
   public updateProfile(updateProfile: FormData): Observable<IModelUser> {
-    let url = "http://localhost:8080/user/update";
-    // let url = "https://cry-by-test-backend.herokuapp.com/user/update";
+    // let url = "http://localhost:8080/user/update";
+    let url = "https://cry-by-test-backend.herokuapp.com/user/update";
     // let body = {
     //   id: updateProfile.id,
     //   username: updateProfile.username,
@@ -53,16 +53,16 @@ export class UserService {
 
 
   public updatePassword(passwordData: Object): Observable<any> {
-    let url = "http://localhost:8080/user/update-password";
-    // let url = "https://cry-by-test-backend.herokuapp.com/user/update-password";
+    // let url = "http://localhost:8080/user/update-password";
+    let url = "https://cry-by-test-backend.herokuapp.com/user/update-password";
 
     return this.http.put<any>(url, passwordData);
   }
 
 
   public getListCustomer(): Observable<ICustomerModel[]> {
-    let url = "http://localhost:8080/customer/all";
-    // let url = "https://cry-by-test-backend.herokuapp.com/customer/all";
+    // let url = "http://localhost:8080/customer/all";
+    let url = "https://cry-by-test-backend.herokuapp.com/customer/all";
     return this.http.get<ICustomerModel[]>(url);
   }
 
@@ -74,15 +74,15 @@ export class UserService {
     let option = {
       params: new HttpParams().set('id', id)
     }
-    let url = "http://localhost:8080/customer/get/"
-    // let url = "https://cry-by-test-backend.herokuapp.com/customer/get/"
+    // let url = "http://localhost:8080/customer/get/"
+    let url = "https://cry-by-test-backend.herokuapp.com/customer/get/"
     return this.http.get<ICustomerModel>(url, option);
   }
 
 
   public updateProfileCustomer(detail: object): Observable<ICustomerModel> {
-    let url = "http://localhost:8080/customer/update"
-    // let url = "https://cry-by-test-backend.herokuapp.com/customer/update"
+    // let url = "http://localhost:8080/customer/update"
+    let url = "https://cry-by-test-backend.herokuapp.com/customer/update"
     console.log(detail);
     return this.http.put<ICustomerModel>(url, detail);
   }
