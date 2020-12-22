@@ -34,6 +34,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NewCustomerComponent } from './pages/new-customer/new-customer.component';
 import { NewAddressComponent } from './pages/new-address/new-address.component';
+import { CustomerListItemComponent } from './pages/customer/component/customer-list-item/customer-list-item.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 
 export function tokenGetter() {
@@ -55,7 +57,9 @@ export function tokenGetter() {
     NavbarComponent,
     RegisterComponent,
     NewCustomerComponent,
-    NewAddressComponent
+    NewAddressComponent,
+    CustomerListItemComponent,
+    FooterComponent
   ],
 
   imports: [

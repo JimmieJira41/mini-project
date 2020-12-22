@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
+import { IEventEmitter } from '../interfaces/i-EventEmitter';
 
 @Component({
   selector: 'app-customer',
@@ -9,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private route: Router) { }
 
   customerList = {
     id: "",
@@ -23,6 +25,32 @@ export class CustomerComponent implements OnInit {
   }
   lists: any;
   ngOnInit(): void {
+    this.getCustomer();
+  }
+   onCustomerListEvnet(event: IEventEmitter) {
+    switch (event.action) {
+      case "EDIT": {
+        this.route.navigate(['/update-customer', event.customerId]);
+        break;
+      }
+      case "REFRESH": {
+        Swal.fire({
+          title: "Successful!",
+          text: "Deleting successful",
+          icon: "success"
+        }).then((confirm) => {
+          this.getCustomer();
+        })
+        break;
+      }
+      case "VIEW":{
+        this.route.navigate(['/view-customer', event.customerId]);
+        break;
+      }
+    }
+  }
+
+  getCustomer() {
     this.userService.getListCustomer().subscribe(
       response => {
         this.lists = response.map((customer: any) => {
@@ -44,7 +72,7 @@ export class CustomerComponent implements OnInit {
     );
   }
   onSubmitDeleteCustomer(idCustomer: string) {
-  //  this.customerList.id = idCustomer;
+    //  this.customerList.id = idCustomer;
     Swal.fire({
       title: "Are you sure!",
       text: "Would you like to delete detail customer!",
@@ -61,12 +89,12 @@ export class CustomerComponent implements OnInit {
               title: "Success!",
               text: "Deleting successful!",
               icon: "success",
-            }).then((confirm)=>{
-              if(confirm){
+            }).then((confirm) => {
+              if (confirm) {
                 location.reload();
               }
             })
-          }, 
+          },
           error => {
             console.log(error);
             Swal.fire({

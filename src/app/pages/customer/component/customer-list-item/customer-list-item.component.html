@@ -1,0 +1,20 @@
+<div class="card shadow">
+  <div class="card-body">
+    <p>name:{{model.firstName}}{{model.lastName}}</p>
+    <p>{{model.gender}}</p>
+    <p>{{model.age}}</p>
+
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn btn-sm btn-primary" (click)="viewCustomer()">View</button>
+    <button class="btn btn-sm btn-warning mx-2" (click)="updateCustomer()">Edit</button>
+    <button class="btn btn-sm btn-danger" (click)="deleteCustomer()">Delete</button>
+  </div>
+</div>
+<!-- <td>{{i+1}}</td> -->
+
+<!-- <td class="text-center">
+  <button class="btn btn-info mx-2" [routerLink]="['/view-customer',list.id]">View</button>
+  <button class="btn btn-warning mx-2" [routerLink]="['/update-customer',list.id]">Edit</button>
+  <button class="btn btn-danger mx-2" (click)="onSubmitDeleteCustomer(list.id)">Delete</button>
+</td> -->

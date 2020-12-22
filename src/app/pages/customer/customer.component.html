@@ -6,13 +6,29 @@
   <div class="row">
     <div class="col-12">
       <div class="jumbotron text-center">
-        <h2>Customer List</h2>
+        <h2 class="display-1">Customer</h2>
         <hr>
         <a class="btn btn-warning" routerLink="/new-customer">New Customer</a>
       </div>
       <div class="card shadow">
         <div class="card-body">
-          <table name="table-list-customer" class="table">
+          <h1 class="text-center">List of Customer</h1>
+          <div class="row">
+            <div *ngIf="lists.length > 0; then present else empty"></div>
+            <ng-template #present>
+              <div class="col-12 my-3" *ngFor="let list of lists; let i = index;">
+                <app-customer-list-item [model]="list" (eventEmitter)="onCustomerListEvnet($event)">
+                </app-customer-list-item>
+              </div>
+            </ng-template>
+            <ng-template #empty>
+              <div class="col-12 text-center" style="top:50;left:50;transform:translate(-50,-50)">
+                <h1 class="display-1">ไม่พบรายการข้อมูลที่อยู่ของคุณ</h1>
+              </div>
+            </ng-template>
+          </div>
+
+          <!-- <table name="table-list-customer" class="table">
             <thead>
               <tr class="text-center">
                 <th scope="row">No.</th>
@@ -23,19 +39,11 @@
               </tr>
             </thead>
             <tbody class="text-center">
-              <tr *ngFor="let list of lists;let i = index">
-                <td>{{i+1}}</td>
-                <td>{{list.firstName}}</td>
-                <td>{{list.lastName}}</td>
-                <td>{{list.gender}}</td>
-                <td class="text-center">
-                  <button class="btn btn-info mx-2" [routerLink]="['/view-customer',list.id]">View</button>
-                  <button class="btn btn-warning mx-2" [routerLink]="['/update-customer',list.id]">Edit</button>
-                  <button class="btn btn-danger mx-2" (click)="onSubmitDeleteCustomer(list.id)">Delete</button>
-                </td>
-              </tr>
+              <div *ngFor="let list of lists; let i = index;">
+                <app-customer-list-item [model]="list" (eventEmitter)="onCustomerListUpdateEvnet($event)"></app-customer-list-item>
+              </div>
             </tbody>
-          </table>
+          </table> -->
         </div>
       </div>
     </div>
