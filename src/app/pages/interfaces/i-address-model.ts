@@ -1,4 +1,4 @@
-export interface IAddress{
+export interface IAddressModel{
     id: string;
     addess: string;
     line1: string;
