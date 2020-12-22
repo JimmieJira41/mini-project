@@ -122,11 +122,11 @@ export class UserService {
     let url = "https://cry-by-test-backend.herokuapp.com/address/create"
     return this.http.post<IAddressModel>(url,detailAddress);
   }
-  public deleteAddress(customerId: string): Observable<IAddressModel>{
+  public deleteAddress(addressId: string): Observable<IAddressModel>{
     // let url = "http://localhost:8080/address/delete";
     let url = "https://cry-by-test-backend.herokuapp.com/address/delete"
     let option = {
-      params: new HttpParams().set("customerId",customerId)
+      params: new HttpParams().set("addressId",addressId)
     }
     return this.http.delete<IAddressModel>(url,option);
   }
