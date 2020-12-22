@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { IloginResponse } from '../pages/interfaces/i-login-response';
 import { IModelUser } from '../pages/interfaces/i-user-model';
 import { ICustomerModel } from '../pages/interfaces/i-customer-model';
-import { IPasswordModel } from '../pages/interfaces/i-password-model';
+import { IAddress, IAddressModel } from '../pages/interfaces/i-address-model';
 
 @Injectable({
   providedIn: 'root'
@@ -106,6 +106,13 @@ export class UserService {
     }
     return this.http.delete<ICustomerModel>(url,option)
   }
+  public fetchAddress(customerId: string): Observable<IAddressModel[]>{
+    let url = "http://localhost:8080/address/fetch";
+    let option = {
+      params: new HttpParams().set("customerId",customerId)
+    }
+    return this.http.get<IAddressModel[]>(url,option);
+    }
   public createAddress(detailAddress: object): Observable<IAddressModel>{
     let url = "http://Localhost:8080/address/create";
     return this.http.post<IAddressModel>(url,detailAddress);

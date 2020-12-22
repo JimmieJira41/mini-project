@@ -53,7 +53,7 @@ export class ViewCustomerComponent implements OnInit {
         console.log(error)
       }
     )
-    this.userService.getAddress(this.customerId).subscribe(
+    this.userService.fetchAddress(this.customerId).subscribe(
       response => {
         this.addressList = response.map((address: any) => {
           return address;

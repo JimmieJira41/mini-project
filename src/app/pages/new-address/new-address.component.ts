@@ -13,7 +13,7 @@ export class NewAddressComponent implements OnInit {
   newAddress = new FormGroup({})
   constructor(private route: ActivatedRoute, private userService: UserService, private fb: FormBuilder) { }
   customerId: any;
-
+  detatilAddress:any;
   buildForm() {
     this.newAddress = this.fb.group({
       address: ['',Validators.required],
@@ -31,7 +31,7 @@ export class NewAddressComponent implements OnInit {
     this.buildForm();
   }
 
-  onSubmitNewAddres(){
-    
+  onSubmitNewAddress(){
+    // this.detatilAddress.
   }
 }
