@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="card shadow">
+  <div class="card mb-4 shadow">
     <div class="card-body">
       <div class="row">
         <div class="col-12">
@@ -41,9 +41,44 @@
           </table>
         </div>
         <div class="col-12 text-right">
-            <a class="btn btn-warning" routerLink="/customer">Back</a>
+          <a class="btn btn-warning" routerLink="/customer">Back</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="card bg-warning mb-4 shadow" style="margin-bottom: 2em;">
+    <div class="card-body">
+      <div class="text-center">
+        <h1 class="text-center"><strong>Addresses</strong></h1>
+        <a [routerLink]="['/new-address',customerId]" class="btn btn-danger">new address</a>
+      </div>
+     
+      <div *ngIf="addressList?.length > 0; then presentList else emptyList"></div>
+      <!-- <div #presentList> -->
+      <ng-template #presentList>
+        <div *ngFor="let address of addressList; let i = index;">
+          <div class="card my-3 shadow">
+            <div class="card-header">
+              <h1 class="display-4 text-center">ข้อมูลที่อยู่ {{i+1}}</h1>
+            </div>
+            <div class="card-body">
+              <p><span class="badge badge-warning">address : </span>{{address.address}}</p>
+              <p><span class="badge badge-warning">line 1 : </span>{{address.line1}}</p>
+              <p><span class="badge badge-warning">line 2 : </span>{{address.line2}}</p>
+              <p><span class="badge badge-warning">postalcode : </span>{{address.postalCode}}</p>
+            </div>
+            <div class="card-footer text-right">
+              <a class="btn btn-warning mr-2">Edit</a>
+              <button class="btn btn-danger" (click)="onSubmitDeleteAddress(address.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    <ng-template #emptyList>
+      <div class="text-center">
+        กรุณาเพิ่ม address
+      </div>
+    </ng-template>
     </div>
   </div>
 </div>

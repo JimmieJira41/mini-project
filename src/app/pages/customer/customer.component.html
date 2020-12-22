@@ -22,7 +22,7 @@
                 <th scope="col">Setting</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
               <tr *ngFor="let list of lists;let i = index">
                 <td>{{i+1}}</td>
                 <td>{{list.firstName}}</td>
@@ -31,7 +31,7 @@
                 <td class="text-center">
                   <button class="btn btn-info mx-2" [routerLink]="['/view-customer',list.id]">View</button>
                   <button class="btn btn-warning mx-2" [routerLink]="['/update-customer',list.id]">Edit</button>
-                  <button class="btn btn-danger" (click)="onSubmitDeleteCustomer(list.id)">Delete</button>
+                  <button class="btn btn-danger mx-2" (click)="onSubmitDeleteCustomer(list.id)">Delete</button>
                 </td>
               </tr>
             </tbody>

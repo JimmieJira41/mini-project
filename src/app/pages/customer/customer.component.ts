@@ -44,7 +44,7 @@ export class CustomerComponent implements OnInit {
     );
   }
   onSubmitDeleteCustomer(idCustomer: string) {
-   this.customerList.id = idCustomer;
+  //  this.customerList.id = idCustomer;
     Swal.fire({
       title: "Are you sure!",
       text: "Would you like to delete detail customer!",

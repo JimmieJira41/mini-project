@@ -12,6 +12,7 @@ import { ViewCustomerComponent } from './pages/view-customer/view-customer.compo
 import { UpdatePasswordComponent } from './pages/update-password/update-password.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NewCustomerComponent } from './pages/new-customer/new-customer.component';
+import { NewAddressComponent } from './pages/new-address/new-address.component';
 
 const routes: Routes = [
   {
@@ -65,7 +66,12 @@ const routes: Routes = [
     path: "new-customer",
     component: NewCustomerComponent,
     canActivate: [AuthGuard]
-  } 
+  } ,
+  {
+    path: "new-address/:id",
+    component: NewAddressComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

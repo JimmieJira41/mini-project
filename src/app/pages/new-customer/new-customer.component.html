@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-6 position-absolute" style="left:50%;transform: translate(-50%);">
+    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-10 position-absolute" style="left:50%;transform: translate(-50%);">
       <div class="card shadow mb-4">
         <div class="card-body ">
           <div class="text-center">
@@ -25,15 +25,15 @@
               <input type="text" class="form-control" formControlName="height">
             </div>
             <div class="form-group">
-                <label for="Birthday">Birthday
-                  <mat-form-field class="d-block" appearance="fill">
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="birthDay">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-                </label>
-              </div>
+              <label for="Birthday">Birthday
+                <mat-form-field class="d-block" appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="birthDay">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </label>
+            </div>
             <div class="form-group">
               <label for="Age">Age</label>
               <input type="text" class="form-control" formControlName="age">
@@ -43,32 +43,33 @@
               <input type="text" class="form-control" formControlName="gender">
             </div>
             <hr>
-            <div formGroupName="address[]">
-              <div class="text-center">
-                <h1>Address</h1>
-              </div>
-              <div class="form-group">
-                <label for="Address">Address</label>
-                <textarea type="text" class="form-control" formControlName="address[]" style="height:150px"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="Line1">Line1</label>
-                <input type="text" class="form-control" formControlName="line1[]">
-              </div>
-              <div class="form-group">
-                <label for="Line2">Line2</label>
-                <input type="text" class="form-control" formControlName="line2[]">
-              </div>
-              <div class="form-group">
-                <label for="PostalCode">PostalCode</label>
-                <input type="text" class="form-control" formControlName="postalCode[]">
-              </div>
-              <div class="text-right">
-                <a class="btn btn-warning mr-2" routerLink="/customer">Back</a>
-                <button class="btn btn-primary" type="submit" [disabled]="newCustomerForm.invalid">Submit</button>
+            <div formArrayName="addresses">
+              <div *ngFor="let addresses of addressList.controls; let i = index;" [formGroupName]="i">
+                <div class="text-center">
+                  <h1>Address</h1>
+                </div>
+                <div class="form-group">
+                  <label for="Address">Address</label>
+                  <textarea type="text" class="form-control" formControlName="address" style="height:150px"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="Line1">Line1</label>
+                  <input type="text" class="form-control" formControlName="line1">
+                </div>
+                <div class="form-group">
+                  <label for="Line2">Line2</label>
+                  <input type="text" class="form-control" formControlName="line2">
+                </div>
+                <div class="form-group">
+                  <label for="PostalCode">PostalCode</label>
+                  <input type="text" class="form-control" formControlName="postalCode">
+                </div>
+                <div class="text-right">
+                  <a class="btn btn-warning mr-2" routerLink="/customer">Back</a>
+                  <button class="btn btn-primary" type="submit" [disabled]="newCustomerForm.invalid">Submit</button>
+                </div>
               </div>
             </div>
-
           </form>
         </div>
       </div>

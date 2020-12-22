@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,23 +8,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./new-customer.component.css']
 })
 export class NewCustomerComponent implements OnInit {
-  // newCustomerForm: FormGroup;
-  newCustomerForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    weight: [''],
-    height: [''],
-    birthDay: ['', Validators.required],
-    age: [''],
-    gender: ['', Validators.required],
-    address: this.fb.group([{
-        id: [''],
-        address: ['', Validators.required],
-        line1: [''],
-        line2: [''],
-        postalCode: ['', Validators.required]
-      }])
-  })
+  newCustomerForm = new FormGroup({});
+  addressList = new  FormArray([]);
+  profileCustomer = {}
+
   // profileCustomer = { }
   // newCustomerForm = this.fb.group({
   //   firstName: new FormControl(''),
@@ -44,12 +31,35 @@ export class NewCustomerComponent implements OnInit {
   // })
   constructor(private fb: FormBuilder, private userService: UserService) { }
 
-  profileCustomer = {}
   ngOnInit(): void {
+    this.buildForm();
   }
+
+  buildForm() {
+    this.newCustomerForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      weight: [''],
+      height: [''],
+      birthDay: ['', Validators.required],
+      age: [''],
+      gender: ['', Validators.required],
+      addresses: this.fb.array([
+        this.fb.group({
+          id: [''],
+          address: ['', Validators.required],
+          line1: [''],
+          line2: [''],
+          postalCode: ['', Validators.required],
+        }),
+      ]),
+    });
+    this.addressList = this.newCustomerForm.get('addresses') as FormArray;
+  }
+
   onSubmitNewCustomer() {
-    console.log(this.profileCustomer);
     this.profileCustomer = this.newCustomerForm.getRawValue();
+    console.log(this.profileCustomer);
     this.userService.createCustomer(this.profileCustomer).subscribe(
       response => {
         console.log(response);
