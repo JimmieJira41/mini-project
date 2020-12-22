@@ -114,8 +114,15 @@ export class UserService {
     return this.http.get<IAddressModel[]>(url,option);
     }
   public createAddress(detailAddress: object): Observable<IAddressModel>{
-    let url = "http://Localhost:8080/address/create";
+    let url = "http://localhost:8080/address/create";
     return this.http.post<IAddressModel>(url,detailAddress);
+  }
+  public deleteAddress(customerId: string): Observable<IAddressModel>{
+    let url = "http://localhost:8080/address/delete";
+    let option = {
+      params: new HttpParams().set("customerId",customerId)
+    }
+    return this.http.delete<IAddressModel>(url,option);
   }
 }
 
