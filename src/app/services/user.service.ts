@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { IloginResponse } from '../pages/interfaces/i-login-response';
 import { IModelUser } from '../pages/interfaces/i-user-model';
 import { ICustomerModel } from '../pages/interfaces/i-customer-model';
-import { IAddress, IAddressModel } from '../pages/interfaces/i-address-model';
+import { IAddressModel } from '../pages/interfaces/i-address-model';
 
 @Injectable({
   providedIn: 'root'
