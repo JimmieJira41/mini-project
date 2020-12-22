@@ -8,8 +8,6 @@ import { IloginResponse } from '../pages/interfaces/i-login-response';
 import { IModelUser } from '../pages/interfaces/i-user-model';
 import { ICustomerModel } from '../pages/interfaces/i-customer-model';
 import { IPasswordModel } from '../pages/interfaces/i-password-model';
-import { IAddress } from '../pages/interfaces/i-address-model';
-import { INotify } from '../pages/interfaces/i-notify-model';
 
 @Injectable({
   providedIn: 'root'
@@ -108,21 +106,9 @@ export class UserService {
     }
     return this.http.delete<ICustomerModel>(url,option)
   }
-
-  public getAddress(customerId: string):Observable<IAddress[]>{
-    let url = "http://localhost:8080/address/fetch";
-    let option = {
-      params: new HttpParams().set("customerId",customerId)
-    }
-    return this.http.get<IAddress[]>(url,option);
-  }
-
-  public deleteAddress(addressId: string): Observable<INotify>{
-    let url = "http://localhost:8080/address/delete";
-    let option = {
-      params: new HttpParams().set("addressId",addressId)
-    }
-    return this.http.delete<INotify>(url,option);
+  public createAddress(detailAddress: object): Observable<IAddressModel>{
+    let url = "http://Localhost:8080/address/create";
+    return this.http.post<IAddressModel>(url,detailAddress);
   }
 }
 
