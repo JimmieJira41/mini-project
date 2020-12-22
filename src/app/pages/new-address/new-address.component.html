@@ -23,7 +23,7 @@
             </div>
             <div class="button-group text-right">
               <a class="btn btn-warning mx-2" [routerLink]="['/view-customer',customerId]">Back</a>
-              <button class="btn btn-primary" type="submit">Submit</button>
+              <button class="btn btn-primary" [disabled]="newAddress.invalid" type="submit">Submit</button>
             </div>
           </form>
         </div>

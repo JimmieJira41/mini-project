@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, CanActivate, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-new-address',
@@ -13,9 +14,14 @@ export class NewAddressComponent implements OnInit {
   newAddress = new FormGroup({})
   constructor(private route: ActivatedRoute, private userService: UserService, private fb: FormBuilder) { }
   customerId: any;
-  detatilAddress:any;
+  detailAddress = {
+    m_customer_id: "",
+    address: {
+    }
+  };
   buildForm() {
     this.newAddress = this.fb.group({
+      id:[''],
       address: ['',Validators.required],
       line1: [''],
       line2: [''],
@@ -32,6 +38,28 @@ export class NewAddressComponent implements OnInit {
   }
 
   onSubmitNewAddress(){
-    // this.detatilAddress.
+    this.detailAddress.m_customer_id = this.customerId;
+    this.detailAddress.address = this.newAddress.getRawValue();
+    console.log(this.detailAddress);
+    this.userService.createAddress(this.detailAddress).subscribe(
+      response=>{
+        Swal.fire({
+          title: "Successful!",
+          text: "Create your new address successful!",
+          icon: "success"
+        }).then((confirm)=>{
+          if(confirm){
+            location.replace('/view-customer/'+this.customerId);
+          }
+        })
+      },
+      error=>{
+        Swal.fire({
+          title: "Fail!",
+          text: "Create your new address fail!",
+          icon: "error"
+        })
+      }
+    )
   }
 }
