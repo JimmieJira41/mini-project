@@ -1,0 +1,15 @@
+<div class="card my-3 shadow">
+    <div class="card-header">
+      <h1 class="display-4 text-center">ข้อมูลที่อยู่</h1>
+    </div>
+    <div class="card-body">
+      <p><span class="badge badge-warning">address : </span>{{model.address}}</p>
+      <p><span class="badge badge-warning">line 1 : </span>{{model.line1}}</p>
+      <p><span class="badge badge-warning">line 2 : </span>{{model.line2}}</p>
+      <p><span class="badge badge-warning">postalcode : </span>{{model.postalCode}}</p>
+    </div>
+    <div class="card-footer text-right">
+      <a class="btn btn-warning mr-2" (click)="updateAddress()">Edit</a>
+      <button class="btn btn-danger" (click)="deleteAddress()">Delete</button>
+    </div>
+  </div>

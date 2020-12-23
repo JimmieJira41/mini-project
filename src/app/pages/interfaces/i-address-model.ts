@@ -1,6 +1,6 @@
 export interface IAddressModel{
     id: string;
-    addess: string;
+    address: string;
     line1: string;
     line2: string;
     postalCode: string;

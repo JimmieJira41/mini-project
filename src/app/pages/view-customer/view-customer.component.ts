@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 import { IAddressModel } from '../interfaces/i-address-model';
+import { IEventEmitter } from '../interfaces/i-EventEmitter';
 
 @Component({
   selector: 'app-view-customer',
@@ -11,9 +12,11 @@ import { IAddressModel } from '../interfaces/i-address-model';
 })
 export class ViewCustomerComponent implements OnInit {
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+  showProcessSpin: boolean = false;
+  // color:ThemePlalette = "accent;
   customerId: string = "";
-  addressId:string = "";
+  addressId: string = "";
   profileCustomer: any = {
     id: "",
     firstname: "",
@@ -53,16 +56,61 @@ export class ViewCustomerComponent implements OnInit {
         console.log(error)
       }
     )
+    this.fetchAddress();
+    this.processSpin();
+  }
+
+  fetchAddress() {
     this.userService.fetchAddress(this.customerId).subscribe(
       response => {
-        this.addressList = response.map((address: any) => {
-          return address;
-        });
+        if (response != null) {
+          this.addressList = response.map((address: any) => {
+            return address;
+          });
+        }
+
       },
       error => {
         console.log(error);
       }
     )
+  }
+
+  onAddressListEvent(event: IEventEmitter) {
+    switch (event.action) {
+      case "EDIT": {
+        this.router.navigate(['/update-address', event.customerId, event.addressId]);
+        break;
+      }
+      case "REFRESH": {
+        Swal.fire({
+          title: "Successful!",
+          text: "Deleting successful",
+          icon: "success"
+        }).then((confirm) => {
+          this.fetchAddress();
+        })
+        break;
+      }
+      case "ERROR": {
+        Swal.fire({
+          title: "Fail!",
+          text: "Deleting successful",
+          icon: "warning"
+        }).then((confirm) => {
+          this.fetchAddress();
+          this.processSpin();
+        })
+        break;
+      }
+    }
+  }
+
+  processSpin() {
+    this.showProcessSpin = true;
+    setTimeout(() => {
+      this.showProcessSpin = false;
+    }, 2000)
   }
 
   onSubmitDeleteAddress(customerId: string) {
@@ -72,7 +120,7 @@ export class ViewCustomerComponent implements OnInit {
       text: "Your detail can't recover after deleting finish!",
       icon: "warning",
       showCancelButton: true,
-      cancelButtonColor:"#d33",
+      cancelButtonColor: "#d33",
       confirmButtonColor: "#3085d6",
       confirmButtonText: "I'm sure!"
     }).then((confirm) => {

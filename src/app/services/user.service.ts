@@ -109,6 +109,15 @@ export class UserService {
     }
     return this.http.delete<ICustomerModel>(url,option)
   }
+
+  public getAddress(addressId: string): Observable<IAddressModel>{
+    let url = "https://cry-by-test-backend.herokuapp.com/address/get";
+    let option = {
+      params : new HttpParams().set("addressId",addressId)
+    }
+    return this.http.get<IAddressModel>(url,option);
+  }
+
   public fetchAddress(customerId: string): Observable<IAddressModel[]>{
     // let url = "http://localhost:8080/address/fetch";
     let url = "https://cry-by-test-backend.herokuapp.com/address/fetch"
@@ -121,6 +130,10 @@ export class UserService {
     // let url = "http://localhost:8080/address/create";
     let url = "https://cry-by-test-backend.herokuapp.com/address/create"
     return this.http.post<IAddressModel>(url,detailAddress);
+  }
+  public updateAddress(detailAddress: object): Observable<IAddressModel>{
+    let url = "https://cry-by-test-backend.herokuapp.com/address";
+    return this.http.put<IAddressModel>(url,detailAddress);
   }
   public deleteAddress(addressId: string): Observable<IAddressModel>{
     // let url = "http://localhost:8080/address/delete";

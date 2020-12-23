@@ -13,20 +13,21 @@ import { UpdatePasswordComponent } from './pages/update-password/update-password
 import { RegisterComponent } from './pages/register/register.component';
 import { NewCustomerComponent } from './pages/new-customer/new-customer.component';
 import { NewAddressComponent } from './pages/new-address/new-address.component';
+import { UpdateAddressComponent } from './pages/update-address/update-address.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:LoginComponent
+    path: '',
+    component: LoginComponent
   },
   {
-    path:'profile',
-    component:ProfileComponent,
+    path: 'profile',
+    component: ProfileComponent,
     canActivate: [AuthGuard]
   },
   {
-    path:'update',
-    component:UpdateComponent,
+    path: 'update',
+    component: UpdateComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -57,7 +58,7 @@ const routes: Routes = [
     path: "update-password",
     component: UpdatePasswordComponent,
     canActivate: [AuthGuard]
-  }, 
+  },
   {
     path: "register",
     component: RegisterComponent
@@ -66,10 +67,15 @@ const routes: Routes = [
     path: "new-customer",
     component: NewCustomerComponent,
     canActivate: [AuthGuard]
-  } ,
+  },
   {
     path: "new-address/:id",
     component: NewAddressComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "update-address/:customerId/:addressId",
+    component: UpdateAddressComponent,
     canActivate: [AuthGuard]
   }
 ];

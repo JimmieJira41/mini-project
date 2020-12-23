@@ -1,81 +1,88 @@
 <app-navbar></app-navbar>
-<div class="container-fluid h-100">
-  <div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-10 position-absolute" style="left:50%;transform: translate(-50%);">
-      <div class="card shadow mb-4">
-        <div class="card-body ">
-          <div class="text-center">
-            <h1>Profile</h1>
-          </div>
-          <form [formGroup]="newCustomerForm" (ngSubmit)="onSubmitNewCustomer()">
-            <div class="form-group">
-              <label for="Firstname">Firstname</label>
-              <input type="text" class="form-control" formControlName="firstName">
+<div class="container-fluid p-0 min-vh-100">
+  <div class="container min-vh-100">
+    <div class="row">
+      <div class="col-12">
+        <!-- <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-10 position-absolute"
+        style="left:50%;transform: translate(-50%);"> -->
+        <div class="card shadow mb-4">
+          <div class="card-body ">
+            <div class="text-center">
+              <h1>Profile</h1>
             </div>
-            <div class="form-group">
-              <label for="Lastname">Lastname</label>
-              <input type="text" class="form-control" formControlName="lastName">
-            </div>
-            <div class="form-group">
-              <label for="Weight">Weight</label>
-              <input type="text" class="form-control" formControlName="weight">
-            </div>
-            <div class="form-group">
-              <label for="Height">Height</label>
-              <input type="text" class="form-control" formControlName="height">
-            </div>
-            <div class="form-group">
-              <label for="Birthday">Birthday
-                <mat-form-field class="d-block" appearance="fill">
-                  <mat-label>Choose a date</mat-label>
-                  <input matInput [matDatepicker]="picker" formControlName="birthDay">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="Age">Age</label>
-              <input type="text" class="form-control" formControlName="age">
-            </div>
-            <div class="form-group">
-              <label for="Gender">Gender</label>
-              <input type="text" class="form-control" formControlName="gender">
-            </div>
-            <hr>
-            <div formArrayName="addresses">
-              <div *ngFor="let addresses of addressList.controls; let i = index;" [formGroupName]="i">
-                <div class="text-center">
-                  <h1>Address</h1>
-                </div>
-                <div class="form-group">
-                  <label for="Address">Address</label>
-                  <textarea type="text" class="form-control" formControlName="address" style="height:150px"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="Line1">Line1</label>
-                  <input type="text" class="form-control" formControlName="line1">
-                </div>
-                <div class="form-group">
-                  <label for="Line2">Line2</label>
-                  <input type="text" class="form-control" formControlName="line2">
-                </div>
-                <div class="form-group">
-                  <label for="PostalCode">PostalCode</label>
-                  <input type="text" class="form-control" formControlName="postalCode">
-                </div>
-                <div class="text-right">
-                  <a class="btn btn-warning mr-2" routerLink="/customer">Back</a>
-                  <button class="btn btn-primary" type="submit" [disabled]="newCustomerForm.invalid">Submit</button>
+            <form [formGroup]="newCustomerForm" (ngSubmit)="onSubmitNewCustomer()">
+              <div class="form-group">
+                <label for="Firstname">Firstname</label>
+                <input type="text" class="form-control shadow" formControlName="firstName">
+              </div>
+              <div class="form-group">
+                <label for="Lastname">Lastname</label>
+                <input type="text" class="form-control shadow" formControlName="lastName">
+              </div>
+              <div class="form-group">
+                <label for="Weight">Weight</label>
+                <input type="text" class="form-control shadow" formControlName="weight">
+              </div>
+              <div class="form-group">
+                <label for="Height">Height</label>
+                <input type="text" class="form-control shadow" formControlName="height">
+              </div>
+              <div class="form-group">
+                <label for="Birthday">Birthday
+                  <mat-form-field class="d-block" appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthDay">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="Age">Age</label>
+                <input type="text" class="form-control shadow" formControlName="age">
+              </div>
+              <div class="form-group">
+                <label for="Gender">Gender</label>
+                <select class="form-control col-3" formControlName="gender">
+                  <option class="text-uppercase" value="" selected>please select one choise!</option>
+                  <option value="MALE">MALE</option>
+                  <option value="FEMALE">FEMALE</option>
+                </select>
+              </div>
+              <hr>
+              <div formArrayName="addresses">
+                <div *ngFor="let addresses of addressList.controls; let i = index;" [formGroupName]="i">
+                  <div class="text-center">
+                    <h1>Address</h1>
+                  </div>
+                  <div class="form-group">
+                    <label for="Address">Address</label>
+                    <textarea type="text" class="form-control shadow" formControlName="address"
+                      style="height:150px"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="Line1">Line1</label>
+                    <input type="text" class="form-control shadow" formControlName="line1">
+                  </div>
+                  <div class="form-group">
+                    <label for="Line2">Line2</label>
+                    <input type="text" class="form-control shadow" formControlName="line2">
+                  </div>
+                  <div class="form-group">
+                    <label for="PostalCode">PostalCode</label>
+                    <input type="text" class="form-control shadow" formControlName="postalCode">
+                  </div>
+                  <div class="text-right">
+                    <a class="btn btn-warning mr-2 shadow" routerLink="/customer">Back</a>
+                    <button class="btn btn-primary shadow" type="submit" [disabled]="newCustomerForm.invalid">Submit</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
-
-

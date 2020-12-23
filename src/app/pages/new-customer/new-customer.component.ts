@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-customer',
   templateUrl: './new-customer.component.html',
@@ -62,10 +62,18 @@ export class NewCustomerComponent implements OnInit {
     console.log(this.profileCustomer);
     this.userService.createCustomer(this.profileCustomer).subscribe(
       response => {
-        console.log(response);
+        Swal.fire({
+          title: "Success!",
+          text: "Creating customer successful!",
+          icon: "success"
+        })
       },
       error => {
-        console.log(error);
+        Swal.fire({
+          title: "Fail!",
+          text: "Creating customer fail!",
+          icon: "error"
+        })
       }
     )
   }

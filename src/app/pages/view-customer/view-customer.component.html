@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container min-vh-100">
   <div class="card mb-4 shadow">
     <div class="card-body">
       <div class="row">
@@ -52,12 +52,16 @@
         <h1 class="text-center"><strong>Addresses</strong></h1>
         <a [routerLink]="['/new-address',customerId]" class="btn btn-danger">new address</a>
       </div>
-     
-      <div *ngIf="addressList?.length > 0; then presentList else emptyList"></div>
+
+      <div *ngIf="showProcessSpin; then showSpin else hideSpin"></div>
       <!-- <div #presentList> -->
-      <ng-template #presentList>
-        <div *ngFor="let address of addressList; let i = index;">
-          <div class="card my-3 shadow">
+      <ng-template #hideSpin>
+        <div *ngIf="addressList?.length > 0; then presentList else emptyList"></div>
+        <ng-template #presentList>
+          <div *ngFor="let address of addressList; let i = index;">
+            <app-address-list-item [model]="address" [customerId]="customerId"
+              (eventEmitter)="onAddressListEvent($event)"></app-address-list-item>
+            <!-- <div class="card my-3 shadow">
             <div class="card-header">
               <h1 class="display-4 text-center">ข้อมูลที่อยู่ {{i+1}}</h1>
             </div>
@@ -71,14 +75,21 @@
               <a class="btn btn-warning mr-2">Edit</a>
               <button class="btn btn-danger" (click)="onSubmitDeleteAddress(address.id)">Delete</button>
             </div>
+          </div> -->
           </div>
+        </ng-template>
+        <ng-template #emptyList>
+          <div class="text-center" style="height:250px;">
+            <h1 class="display-3 w-100 position-absolute" style="top:50%;left:50%;transform:translate(-50%,-50%)">ไม่พบ address ของผู้ใช้งาน</h1>
+          </div>
+        </ng-template>
+      </ng-template>
+      <ng-template #showSpin>
+        <div class="p-0" style="height:250px;">
+          <mat-spinner style="top:50%;left:50%;transform:translate(-50%,-50%)" ></mat-spinner>
         </div>
       </ng-template>
-    <ng-template #emptyList>
-      <div class="text-center">
-        <h1 class="display-1">กรุณาเพิ่ม address</h1>
-      </div>
-    </ng-template>
     </div>
   </div>
 </div>
+<app-footer></app-footer>

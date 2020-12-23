@@ -36,6 +36,9 @@ import { NewCustomerComponent } from './pages/new-customer/new-customer.componen
 import { NewAddressComponent } from './pages/new-address/new-address.component';
 import { CustomerListItemComponent } from './pages/customer/component/customer-list-item/customer-list-item.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AddressListItemComponent } from './pages/view-customer/component/address-list-item/address-list-item.component';
+import { UpdateAddressComponent } from './pages/update-address/update-address.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 export function tokenGetter() {
@@ -59,7 +62,9 @@ export function tokenGetter() {
     NewCustomerComponent,
     NewAddressComponent,
     CustomerListItemComponent,
-    FooterComponent
+    FooterComponent,
+    AddressListItemComponent,
+    UpdateAddressComponent
   ],
 
   imports: [
@@ -74,6 +79,7 @@ export function tokenGetter() {
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     CollapseModule.forRoot(),
     SweetAlert2Module.forRoot(),
     JwtModule.forRoot({

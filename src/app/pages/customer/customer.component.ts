@@ -12,7 +12,7 @@ import { IEventEmitter } from '../interfaces/i-EventEmitter';
 export class CustomerComponent implements OnInit {
 
   constructor(private userService: UserService, private route: Router) { }
-
+  showProcessSpin:boolean = false;
   customerList = {
     id: "",
     firstname: "",
@@ -24,9 +24,12 @@ export class CustomerComponent implements OnInit {
     gender: ""
   }
   lists: any;
+
   ngOnInit(): void {
     this.getCustomer();
+    this.processSpin();
   }
+
    onCustomerListEvnet(event: IEventEmitter) {
     switch (event.action) {
       case "EDIT": {
@@ -48,6 +51,13 @@ export class CustomerComponent implements OnInit {
         break;
       }
     }
+  }
+
+  processSpin(){
+    this.showProcessSpin = true;
+    setTimeout(()=>{
+      this.showProcessSpin = false;
+    },2000)
   }
 
   getCustomer() {

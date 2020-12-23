@@ -1,34 +1,40 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
-
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="jumbotron text-center">
-        <h2 class="display-1">Customer</h2>
-        <hr>
-        <a class="btn btn-warning" routerLink="/new-customer">New Customer</a>
-      </div>
-      <div class="card shadow">
-        <div class="card-body">
-          <h1 class="text-center">List of Customer</h1>
-          <div class="row">
-            <div *ngIf="lists.length > 0; then present else empty"></div>
-            <ng-template #present>
-              <div class="col-12 my-3" *ngFor="let list of lists; let i = index;">
-                <app-customer-list-item [model]="list" (eventEmitter)="onCustomerListEvnet($event)">
-                </app-customer-list-item>
-              </div>
-            </ng-template>
-            <ng-template #empty>
-              <div class="col-12 text-center" style="top:50;left:50;transform:translate(-50,-50)">
-                <h1 class="display-1">ไม่พบรายการข้อมูลที่อยู่ของคุณ</h1>
-              </div>
-            </ng-template>
-          </div>
-
-          <!-- <table name="table-list-customer" class="table">
+<div class="container-fluid p-0 min-vh-100">
+  <div class="container mb-4 min-vh-100">
+    <div class="row">
+      <div class="col-12">
+        <div class="jumbotron text-center">
+          <h2 class="display-1">Customer</h2>
+          <hr>
+          <a class="btn btn-warning" routerLink="/new-customer">New Customer</a>
+        </div>
+        <div class="card shadow">
+          <div class="card-body bg-warning">
+            <h1 class="text-center">List of Customer</h1>
+            <div class="row">
+              <div *ngIf="showProcessSpin; then showSpin else hideSpin"></div>
+              <ng-template #hideSpin>
+                <div *ngIf="lists.length > 0; then present else empty"></div>
+                <ng-template #present>
+                  <div class="col-12 my-3" *ngFor="let list of lists; let i = index;">
+                    <app-customer-list-item [model]="list" (eventEmitter)="onCustomerListEvnet($event)">
+                    </app-customer-list-item>
+                  </div>
+                </ng-template>
+                <ng-template #empty>
+                  <div class="col-12" style="height:250px;">
+                    <h1 class="display-1 text-center w-100 position-absolute"
+                      style="top:50%;left:50%;transform:translate(-50%,-50%)">ไม่พบรายการผู้ใช้งาน</h1>
+                  </div>
+                </ng-template>
+              </ng-template>
+              <ng-template #showSpin>
+                <div class="p-0" style="height:250px;">
+                  <mat-spinner class="position-absolute" style="top:50%;left:50%;transform:translate(-50%,-50%)"></mat-spinner>
+                </div>
+              </ng-template>
+            </div>
+            <!-- <table name="table-list-customer" class="table">
             <thead>
               <tr class="text-center">
                 <th scope="row">No.</th>
@@ -44,8 +50,10 @@
               </div>
             </tbody>
           </table> -->
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <app-footer></app-footer>
 </div>
