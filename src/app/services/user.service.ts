@@ -87,8 +87,8 @@ export class UserService {
     return this.http.put<ICustomerModel>(url, detail);
   }
   public register(detail: object): Observable<ICustomerModel> {
-    // let url = "http://localhost:8080/user/register"
-    let url = "https://cry-by-test-backend.herokuapp.com/customer/register"
+    // let url = "http://localhost:8080/authentication/register"
+    let url = "https://cry-by-test-backend.herokuapp.com/authentication/register"
     return this.http.post<ICustomerModel>(url, detail);
   }
 
@@ -111,6 +111,7 @@ export class UserService {
   }
 
   public getAddress(addressId: string): Observable<IAddressModel>{
+    // let url = "https://localhost:8080/address/get";
     let url = "https://cry-by-test-backend.herokuapp.com/address/get";
     let option = {
       params : new HttpParams().set("addressId",addressId)
@@ -132,6 +133,7 @@ export class UserService {
     return this.http.post<IAddressModel>(url,detailAddress);
   }
   public updateAddress(detailAddress: object): Observable<IAddressModel>{
+    // let url = "https://localhost:8080/address";
     let url = "https://cry-by-test-backend.herokuapp.com/address";
     return this.http.put<IAddressModel>(url,detailAddress);
   }

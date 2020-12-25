@@ -1,6 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   @Input() message:string | undefined;
   
-  constructor(private router:Router){}
+  constructor(private router:Router,private cookieService: CookieService){}
   isCollapsed = true;
   
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
 
   onLogout():void{
     localStorage.removeItem('token');
+    this.cookieService.delete('Token');
     this.router.navigate(['']);
   }
 

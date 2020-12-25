@@ -14,6 +14,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { NewCustomerComponent } from './pages/new-customer/new-customer.component';
 import { NewAddressComponent } from './pages/new-address/new-address.component';
 import { UpdateAddressComponent } from './pages/update-address/update-address.component';
+import { RxComponent } from './test/rx/rx.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,10 @@ const routes: Routes = [
     path: "update-address/:customerId/:addressId",
     component: UpdateAddressComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: "testRx",
+    component: RxComponent
   }
 ];
 

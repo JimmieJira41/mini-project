@@ -39,6 +39,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { AddressListItemComponent } from './pages/view-customer/component/address-list-item/address-list-item.component';
 import { UpdateAddressComponent } from './pages/update-address/update-address.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RxComponent } from './test/rx/rx.component';
 
 
 export function tokenGetter() {
@@ -64,7 +65,8 @@ export function tokenGetter() {
     CustomerListItemComponent,
     FooterComponent,
     AddressListItemComponent,
-    UpdateAddressComponent
+    UpdateAddressComponent,
+    RxComponent
   ],
 
   imports: [

@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService:UserService, private route:Router) { }
+  constructor(private userService: UserService, private route: Router) { }
 
   registerData = {
     username: "",
@@ -20,33 +20,34 @@ export class RegisterComponent implements OnInit {
 
   registerForm = new FormGroup({
     username: new FormControl(''),
-    password: new FormControl('')  
+    password: new FormControl('')
   })
   ngOnInit(): void {
   }
 
-  onSubmitRegister(){
+  onSubmitRegister() {
     this.registerData.username = this.registerForm.value.username;
     this.registerData.password = this.registerForm.value.password;
     this.userService.register(this.registerData).subscribe(
-      response=>{
+      response => {
         console.log(response);
         Swal.fire({
           title: "Oh yeah",
           text: "Create new user success!",
           icon: "success"
-         }).then(confirm=>{
-           if(confirm){
-             this.route.navigate([""]);
-           }
-         })
+        }).then(confirm => {
+          if (confirm) {
+            this.route.navigate([""]);
+          }
+        })
       },
-      error=>{
-       Swal.fire({
-        title: "Oh no !",
-        text: "Please check your username and password",
-        icon: "warning"
-       })
+      error => {
+        console.log(error);
+        Swal.fire({
+          title: "Oh no !",
+          text: "Please check your username and password",
+          icon: "warning"
+        })
       }
     )
   }
