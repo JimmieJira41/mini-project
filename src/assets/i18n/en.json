@@ -1,0 +1,35 @@
+{
+  "Navbar": {
+    "dashboard": "dashboard",
+    "profile": "profile",
+    "customer": "customer",
+    "logout": "logout"
+  },
+  "Profile": {
+    "profile": "Profile",
+    "id": "ID",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "image": "Image"
+
+  },
+  "Button": {
+    "submit": "Submit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back",
+    "update": "Update",
+    "resetPassword": "Reset Password",
+    "newCustomer": "New-Customer"
+  },
+  "Form":{
+    "resetPassword":{
+        "newPassword": "New-Password",
+        "confirmNewPassword": "Confirm New-Password",
+        "oldPassword": "Recent-Password"
+    }
+  }
+}

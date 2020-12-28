@@ -9,7 +9,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthInterceptor } from './services/auth.interceptor';
@@ -41,9 +41,18 @@ import { UpdateAddressComponent } from './pages/update-address/update-address.co
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RxComponent } from './test/rx/rx.component';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { MetaModule } from '@ngx-meta/core';
+
 
 export function tokenGetter() {
-  return localStorage.getitem('Token');
+  return localStorage.getItem('token');
+}
+
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -70,7 +79,7 @@ export function tokenGetter() {
   ],
 
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -84,11 +93,19 @@ export function tokenGetter() {
     MatProgressSpinnerModule,
     CollapseModule.forRoot(),
     SweetAlert2Module.forRoot(),
+    TranslateModule.forRoot({
+      loader:{
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter
       },
     }),
+    MetaModule.forRoot(),
     NgbModule,
   ],
   providers: [CookieService, MatDatepickerModule, MatNativeDateModule, MatToolbarModule, MatIconModule,

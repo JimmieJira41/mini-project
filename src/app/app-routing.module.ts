@@ -15,6 +15,8 @@ import { NewCustomerComponent } from './pages/new-customer/new-customer.componen
 import { NewAddressComponent } from './pages/new-address/new-address.component';
 import { UpdateAddressComponent } from './pages/update-address/update-address.component';
 import { RxComponent } from './test/rx/rx.component';
+import { MetaGuard } from '@ngx-meta/core';
+import { Meta } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -24,41 +26,79 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Profile page",
+        description: "This page is about profile admin"
+      }
+    }
   },
   {
     path: 'update',
     component: UpdateComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Update Profile page",
+        description: "This page is about form update profile admin"
+      }
+    }
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: "upload-image",
-    component: UploadImageComponent,
-    canActivate: [AuthGuard]
+    component: DashboardComponent,
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Dashboard page",
+        description: "This page is about dashboard"
+      }
+    }
   },
   {
     path: "customer",
     component: CustomerComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Customer page",
+        description: "This page is about form customer list"
+      }
+    }
   },
   {
     path: "view-customer/:id",
     component: ViewCustomerComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Customer page",
+        description: "This page is about form detail customer"
+      }
+    }
   },
   {
     path: "update-customer/:idCustomer",
     component: UpdateCustomerComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Update Customer page",
+        description: "This page is about form form update customer"
+      }
+    }
   },
   {
     path: "update-password",
     component: UpdatePasswordComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Admin page",
+        description: "This page is about form reset password admin"
+      }
+    }
   },
   {
     path: "register",
@@ -67,17 +107,35 @@ const routes: Routes = [
   {
     path: "new-customer",
     component: NewCustomerComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Customer page",
+        description: "This page is about form create new customer"
+      }
+    }
   },
   {
     path: "new-address/:id",
     component: NewAddressComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Address page",
+        description: "This page is about form new address"
+      }
+    }
   },
   {
     path: "update-address/:customerId/:addressId",
     component: UpdateAddressComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Address page",
+        description: "This page is about form update address"
+      }
+    }
   },
   {
     path: "testRx",
@@ -86,7 +144,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

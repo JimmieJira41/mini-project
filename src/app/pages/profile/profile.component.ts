@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 @Component({
@@ -13,7 +15,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ProfileComponent implements OnInit {
   // sanitizetion: any;
 
-  constructor(private userService: UserService, private router: Router, private sanitizetion:DomSanitizer) { }
+  constructor(private userService: UserService, private router: Router, private sanitizetion: DomSanitizer, private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+  }
 
   profile = {
     id: "",
@@ -24,19 +28,19 @@ export class ProfileComponent implements OnInit {
     lastname: "",
     image: ""
   }
-  script_image:string = "data:image;base64,";
+  script_image: string = "data:image;base64,";
   profileDetail: any;
-  flag_image:boolean = false;
+  flag_image: boolean = false;
 
-  
-  transform(){
+
+  transform() {
     return this.sanitizetion.bypassSecurityTrustResourceUrl(this.script_image);
   }
 
   ngOnInit(): void {
-      this.userService.getProfile().subscribe(
-        reponse =>{
-        Object.assign(this.profile,reponse)
+    this.userService.getProfile().subscribe(
+      reponse => {
+        Object.assign(this.profile, reponse)
         this.profile.id = reponse.id;
         this.profile.username = reponse.username;
         this.profile.password = reponse.password;
@@ -51,30 +55,35 @@ export class ProfileComponent implements OnInit {
         // this.script_image = this.sanitizetion.bypassSecurityTrustStyle();
         //  console.log(this.profile);
         //  this.profileDetail = Object.values(reponse);
-        },
-        error =>{
-          console.log(error);
-        }
-      )
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
-  
-  onCheckImage(){
-    if(this.profile.image != null){
+
+  changeLanguage(lang: string) {
+    console.log(lang)
+    this.translate.use(lang);
+  }
+
+  onCheckImage() {
+    if (this.profile.image != null) {
       this.flag_image = true;
-    }else{
+    } else {
       this.flag_image = false;
-    } 
+    }
   }
 
   profileForm = new FormGroup({
-      // id: new FormControl(''),
-      // username: new FormControl(''),
-      // password: new FormControl(''),
-      // email: new FormControl(''),
-      // firstname: new FormControl(''),
-      // lastname: new FormControl('')
+    // id: new FormControl(''),
+    // username: new FormControl(''),
+    // password: new FormControl(''),
+    // email: new FormControl(''),
+    // firstname: new FormControl(''),
+    // lastname: new FormControl('')
   })
- 
-  
+
+
 
 }

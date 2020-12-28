@@ -5,10 +5,11 @@
       <div class="row">
         <div class="col-12 text-center text-uppercase">
           <h1 class="display-3 font-weight-bold">
-            profile
+            {{'Profile.profile'|translate}}
           </h1>
           <span><small>update profile</small></span>
-          <div *ngIf="flagUpdate" class="alert alert-success my-3"><strong class="text-uppercase">Update Successfull!</strong></div>
+          <div *ngIf="flagUpdate" class="alert alert-success my-3"><strong class="text-uppercase">Update
+              Successfull!</strong></div>
         </div>
         <div class="col-12">
           <form [formGroup]="updateProfileForm" enctype="multipart/form-data" name="updateProfileForm"
@@ -16,42 +17,42 @@
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label for="image-file"><strong>Image</strong></label>
+                  <label for="image-file"><strong>{{'Profile.image'|translate}}</strong></label>
                   <input type="file" formControlName="imageFile" name="file" class="form-control-file"
                     (change)="onFileChange($event)">
                 </div>
                 <div class="form-group">
-                  <label><strong>ID</strong></label>
+                  <label><strong>{{'Profile.id' | translate}}</strong></label>
                   <input type="text" formControlName="id" class="form-control py-4 rounded-0 border-0 shadow" />
                 </div>
                 <div class="form-group">
-                  <label><strong>Username</strong></label>
+                  <label><strong>{{'Profile.username' | translate}}</strong></label>
                   <input type="text" formControlName="username" class="form-control py-4 rounded-0 border-0 shadow" />
                 </div>
                 <div class="form-group">
-                  <label><strong>Password</strong></label>
+                  <label><strong>{{'Profile.password' | translate}}</strong></label>
                   <input type="password" formControlName="password"
                     class="form-control py-4 rounded-0 border-0 shadow" />
                 </div>
                 <div class="text-right">
-                  <a class="btn btn-warning btn-sm text-uppercase" routerLink="/update-password"><strong>reset password</strong></a>
+                  <a class="btn btn-warning btn-sm text-uppercase" routerLink="/update-password"><strong>{{'Button.resetPassword' | translate}}</strong></a>
                 </div>
                 <div class="form-group">
-                  <label><strong>Email</strong></label>
+                  <label><strong>{{'Profile.email' | translate}}</strong></label>
                   <input type="email" formControlName="email" class="form-control py-4 rounded-0 border-0 shadow" />
                 </div>
                 <div class="form-group">
-                  <label><strong>FirstName</strong></label>
+                  <label><strong>{{'Profile.firstname' | translate}}</strong></label>
                   <input type="text" formControlName="firstname" class="form-control py-4 rounded-0 border-0 shadow" />
                 </div>
                 <div class="form-group">
-                  <label><strong>LastName</strong></label>
+                  <label><strong>{{'Profile.lastname' | translate}}</strong></label>
                   <input type="text" formControlName="lastname" class="form-control py-4 rounded-0 border-0 shadow" />
                 </div>
               </div>
               <div class="col-12 text-right">
-                <a class="btn btn-danger text-uppercase mr-2" routerLink="/profile"><strong>Cancel</strong></a>
-                <button type="submit" class="btn btn-success text-uppercase"><strong>Submit</strong></button>
+                <a class="btn btn-danger text-uppercase mr-2" routerLink="/profile"><strong>{{'Button.cancel' | translate}}</strong></a>
+                <button type="submit" class="btn btn-success text-uppercase"><strong>{{'Button.submit' | translate}}</strong></button>
               </div>
             </div>
           </form>
@@ -61,4 +62,3 @@
   </div>
 </div>
 <app-footer></app-footer>
-

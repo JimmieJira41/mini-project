@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-12">
             <h1 class="display-3 text-center text-uppercase font-weight-bold">
-              profile
+              {{ 'Profile.profile' | translate }}
             </h1>
           </div>
           <div *ngIf="!flag_image" class="col-12 text-center">
@@ -20,32 +20,32 @@
           <div class="col-12">
             <form [formGroup]="profileForm" name="profileForm">
               <div class="form-group">
-                <label><strong>ID</strong></label>
+                <label><strong>{{"Profile.id" | translate}}</strong></label>
                 <input type="text" class="form-control py-4 rounded-0 border-0 shadow" value="{{ profile.id }}"
                   disabled />
               </div>
               <div class="form-group">
-                <label><strong>Username</strong></label>
+                <label><strong>{{'Profile.username' | translate}}</strong></label>
                 <input type="text" class="form-control py-4 rounded-0 border-0 shadow" value="{{ profile.username }}"
                   disabled />
               </div>
               <div class="form-group">
-                <label><strong>Password</strong></label>
+                <label><strong>{{'Profile.password' | translate}}</strong></label>
                 <input type="password" class="form-control py-4 rounded-0 border-0 shadow"
                   value="{{ profile.password }}" disabled />
               </div>
               <div class="form-group">
-                <label><strong>Email</strong></label>
+                <label><strong>{{'Profile.email'| translate}}</strong></label>
                 <input type="email" class="form-control py-4 rounded-0 border-0 shadow" value="{{ profile.email }}"
                   disabled />
               </div>
               <div class="form-group">
-                <label><strong>FirstName</strong></label>
+                <label><strong>{{'Profile.firstname' | translate}}</strong></label>
                 <input type="text" class="form-control py-4 rounded-0 border-0 shadow" value="{{ profile.firstname }}"
                   disabled />
               </div>
               <div class="form-group">
-                <label><strong>LastName</strong></label>
+                <label><strong>{{'Profile.lastname' | translate}}</strong></label>
                 <input type="text" class="form-control py-4 rounded-0 border-0 shadow" value="{{ profile.lastname }}"
                   disabled />
               </div>
@@ -54,7 +54,7 @@
           <div class="col-12 text-right">
             <ul style="text-decoration: none;list-style: none;">
               <li class="d-inline my-2">
-                <button class="btn btn-warning text-uppercase" routerLink="/update"><strong>Update</strong></button>
+                <button class="btn btn-warning text-uppercase" routerLink="/update"><strong>{{ 'Button.update' | translate }}</strong></button>
               </li>
             </ul>
           </div>

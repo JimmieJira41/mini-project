@@ -1,0 +1,50 @@
+{
+  "Navbar": {
+    "dashboard": "แผนผังควบคุม",
+    "profile": "โปรไฟล์",
+    "customer": "ผู้ใช้งาน",
+    "logout": "ออกจากระบบ"
+  },
+  "Profile": {
+    "profile": "โปรไฟล์",
+    "id": "รหัส",
+    "username": "ชื่อผู้ใช้งาน",
+    "password": "รหัสผ่าน",
+    "email": "อีเมล",
+    "firstname": "ชื่อ",
+    "lastname": "นามสกุล",
+    "image": "รูปภาพ"
+  },
+  "Customer": {
+    "customer": "ผู้ใช้งาน",
+    "listCustomer": "รายการผู้ใช้งาน",
+    "profileCustomer": "โปรไฟล์ผู้ใช้งาน",
+    "firstname": "ชื่อ",
+    "lastname": "นามสกุล",
+    "weight": "น้ำหนัก",
+    "height": "ส่วนสูง",
+    "birthday": "วันเดือนปีเกิด",
+    "age": "อายุ",
+    "gender": "เพศ"
+  },
+  "Button": {
+    "view": "แสดง",
+    "edit": "แก้ไข",
+    "delete": "ลบ",
+    "submit": "ยืนยัน",
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "back": "ย้อนกลับ",
+    "update": "อัพเดต",
+    "resetPassword": "เปลี่ยนรหัส",
+    "newCustomer": "สร้างผู้ใช้งานใหม่"
+
+  },
+  "Form": {
+    "resetPassword": {
+      "newPassword": "รหัสใหม่",
+      "confirmNewPassword": "ยันยืนรหัสใหม่",
+      "oldPassword": "รหัสปัจจุบัน"
+    }
+  }
+}
