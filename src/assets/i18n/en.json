@@ -14,9 +14,26 @@
     "firstname": "Firstname",
     "lastname": "Lastname",
     "image": "Image"
-
   },
+    "Customer": {
+      "customer": "Customer",
+      "listCustomer": "List of Customer",
+      "profileCustomer": "Profile customer",
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "weight": "Weight",
+      "height": "Height",
+      "birthday": "Birthday",
+      "age": "Age",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "select": "please select one choise!"
+    },
   "Button": {
+    "view": "view",
+    "edit": "edit",
+    "delete": "delete",
     "submit": "Submit",
     "save": "Save",
     "cancel": "Cancel",
@@ -30,6 +47,12 @@
         "newPassword": "New-Password",
         "confirmNewPassword": "Confirm New-Password",
         "oldPassword": "Recent-Password"
+    },
+    "newAddress":{
+      "address": "Address",
+      "line1": "Line1",
+      "line2": "Line2",
+      "postalcode": "Postalcode"
     }
   }
 }

@@ -3,9 +3,12 @@
       <span>Customer-App</span>
     </div>
     <div class="menu">
-      <a class="text-decoration-none text-white text-uppercase" routerLink="/dashboard">{{ 'Navbar.dashboard' | translate }}</a>
-      <a class="text-decoration-none text-white text-uppercase" routerLink="/profile">{{ 'Navbar.profile' | translate}}</a>
-      <a class="text-decoration-none text-white text-uppercase" routerLink="/customer">{{ 'Navbar.customer' | translate}}</a>
+      <a class="text-decoration-none text-white text-uppercase"
+        routerLink="/dashboard">{{ 'Navbar.dashboard' | translate }}</a>
+      <a class="text-decoration-none text-white text-uppercase"
+        routerLink="/profile">{{ 'Navbar.profile' | translate}}</a>
+      <a class="text-decoration-none text-white text-uppercase"
+        routerLink="/customer">{{ 'Navbar.customer' | translate}}</a>
       <select #lang (change)="changeLanguage(lang.value)" class="form-inline d-inline rounded">
         <option name="option1" value="en">en</option>
         <option name="option2" value="th">th</option>
@@ -13,5 +16,3 @@
       <button class="btn btn-danger text-uppercase mx-3" (click)="onLogout()">{{'Navbar.logout' | translate }}</button>
     </div>
   </mat-toolbar>
- 
-  

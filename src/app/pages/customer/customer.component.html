@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col-12">
         <div class="jumbotron text-center">
-          <h2 class="display-1">Customer</h2>
+          <h2 class="display-1">{{'Customer.customer' | translate}}</h2>
           <hr>
           <a class="btn btn-warning" routerLink="/new-customer">New Customer</a>
         </div>
         <div class="card shadow">
           <div class="card-body bg-warning">
-            <h1 class="text-center">List of Customer</h1>
+            <h1 class="text-center">{{'Customer.listCustomer' | translate}}</h1>
             <div class="row">
               <div *ngIf="showProcessSpin; then showSpin else hideSpin"></div>
               <ng-template #hideSpin>
@@ -24,7 +24,7 @@
                 <ng-template #empty>
                   <div class="col-12" style="height:250px;">
                     <h1 class="display-1 text-center w-100 position-absolute"
-                      style="top:50%;left:50%;transform:translate(-50%,-50%)">ไม่พบรายการผู้ใช้งาน</h1>
+                      style="top:50%;left:50%;transform:translate(-50%,-50%)"></h1>
                   </div>
                 </ng-template>
               </ng-template>

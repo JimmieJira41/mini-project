@@ -25,7 +25,10 @@
     "height": "ส่วนสูง",
     "birthday": "วันเดือนปีเกิด",
     "age": "อายุ",
-    "gender": "เพศ"
+    "gender": "เพศ",
+    "male": "ผู้ชาย",
+    "female": "ผู้หญิง",
+    "select": "โปรดเลือกอย่างน้อย 1 ตัวเลือก"
   },
   "Button": {
     "view": "แสดง",
@@ -38,13 +41,18 @@
     "update": "อัพเดต",
     "resetPassword": "เปลี่ยนรหัส",
     "newCustomer": "สร้างผู้ใช้งานใหม่"
-
   },
   "Form": {
     "resetPassword": {
       "newPassword": "รหัสใหม่",
       "confirmNewPassword": "ยันยืนรหัสใหม่",
       "oldPassword": "รหัสปัจจุบัน"
+    },
+    "newAddress":{
+      "address": "ที่อยู่",
+      "line1": "Line1",
+      "line2": "Line2",
+      "postalcode": "รหัสไปรษณี"
     }
   }
 }

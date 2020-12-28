@@ -7,24 +7,24 @@
           <div class="card-body">
             <form [formGroup]="newAddress" (ngSubmit)="onSubmitNewAddress()">
               <div class="form-group">
-                <label for="Address" class="font-weight-bold">Address</label>
+                <label for="Address" class="font-weight-bold">{{'Form.newAddress.address' | translate}}</label>
                 <textarea class="form-control shadow" formControlName="address"></textarea>
               </div>
               <div class="form-group">
-                <label for="Line1" class="font-weight-bold">Line1</label>
+                <label for="Line1" class="font-weight-bold">{{'Form.newAddress.line1' | translate}}</label>
                 <input class="form-control shadow" type="text" formControlName="line1">
               </div>
               <div class="form-group">
-                <label for="Line2" class="font-weight-bold">Line2</label>
+                <label for="Line2" class="font-weight-bold">{{'Form.newAddress.line2' | translate}}</label>
                 <input class="form-control shadow" type="text" formControlName="line2">
               </div>
               <div class="form-group">
-                <label for="Postalcode" class="font-weight-bold">Postalcode</label>
+                <label for="Postalcode" class="font-weight-bold">{{'Form.newAddress.postalcode' | translate}}</label>
                 <input class="form-control shadow" type="text" formControlName="postalCode">
               </div>
               <div class="button-group text-right">
-                <a class="btn btn-warning mx-2" [routerLink]="['/view-customer',customerId]">Back</a>
-                <button class="btn btn-primary" [disabled]="newAddress.invalid" type="submit">Submit</button>
+                <a class="btn btn-warning mx-2" [routerLink]="['/view-customer',customerId]">{{'Button.back' | translate}}</a>
+                <button class="btn btn-primary" [disabled]="newAddress.invalid" type="submit">{{'Button.submit' | translate}}</button>
               </div>
             </form>
           </div>

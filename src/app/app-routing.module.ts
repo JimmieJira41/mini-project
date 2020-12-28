@@ -21,7 +21,15 @@ import { Meta } from '@angular/platform-browser';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [MetaGuard],
+    data:{
+      meta:{
+        title: "Customer app || Login page",
+        description: "This page is about login to admin page",
+        image: "./assets/image.png"
+      }
+    }
   },
   {
     path: 'profile',
@@ -30,7 +38,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Profile page",
-        description: "This page is about profile admin"
+        description: "This page is about profile admin",
+        image: "./assets/image.png"
       }
     }
   },
@@ -41,7 +50,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Update Profile page",
-        description: "This page is about form update profile admin"
+        description: "This page is about form update profile admin",
+        image: "./assets/image.png"
       }
     }
   },
@@ -52,7 +62,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Dashboard page",
-        description: "This page is about dashboard"
+        description: "This page is about dashboard",
+        image: "./assets/image.png"
       }
     }
   },
@@ -63,7 +74,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Customer page",
-        description: "This page is about form customer list"
+        description: "This page is about form customer list",
+        image: "./assets/image.png"
       }
     }
   },
@@ -74,7 +86,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Customer page",
-        description: "This page is about form detail customer"
+        description: "This page is about form detail customer",
+        image: "./assets/image.png"
       }
     }
   },
@@ -85,7 +98,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Update Customer page",
-        description: "This page is about form form update customer"
+        description: "This page is about form form update customer",
+        image: "./assets/image.png"
       }
     }
   },
@@ -96,7 +110,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Admin page",
-        description: "This page is about form reset password admin"
+        description: "This page is about form reset password admin",
+        image: "./assets/image.png"
       }
     }
   },
@@ -111,7 +126,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Customer page",
-        description: "This page is about form create new customer"
+        description: "This page is about form create new customer",
+        image: "./assets/image.png"
       }
     }
   },
@@ -122,7 +138,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Address page",
-        description: "This page is about form new address"
+        description: "This page is about form new address",
+        image: "./assets/image.png"
       }
     }
   },
@@ -133,7 +150,8 @@ const routes: Routes = [
     data:{
       meta:{
         title: "Customer app || Address page",
-        description: "This page is about form update address"
+        description: "This page is about form update address",
+        image: "./assets/image.png"
       }
     }
   },
