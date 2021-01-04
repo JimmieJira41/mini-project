@@ -27,7 +27,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Login page",
         description: "This page is about login to admin page",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -39,7 +40,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Profile page",
         description: "This page is about profile admin",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -51,7 +53,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Update Profile page",
         description: "This page is about form update profile admin",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -63,7 +66,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Dashboard page",
         description: "This page is about dashboard",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -75,7 +79,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Customer page",
         description: "This page is about form customer list",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -87,7 +92,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Customer page",
         description: "This page is about form detail customer",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -99,7 +105,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Update Customer page",
         description: "This page is about form form update customer",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -111,7 +118,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Admin page",
         description: "This page is about form reset password admin",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -127,7 +135,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Customer page",
         description: "This page is about form create new customer",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -139,7 +148,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Address page",
         description: "This page is about form new address",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
@@ -151,7 +161,8 @@ const routes: Routes = [
       meta:{
         title: "Customer app || Address page",
         description: "This page is about form update address",
-        image: "./assets/image.png"
+        'og:image': "./assets/image.png",
+        'og:website':"./assets/image.png"
       }
     }
   },
